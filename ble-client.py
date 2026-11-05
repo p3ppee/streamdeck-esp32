@@ -31,7 +31,7 @@ async def trova_dispositivi():
       print(dispositivo.address)
       esp32_addr = dispositivo.address
 
-client = BleackClient(esp32_addr)
+client = BleakClient(esp32_addr)
 await client.connect() #gestire disconnessione manualmente
 if client.is_connected:
   print("connesso")
