@@ -1,6 +1,7 @@
 import bluetooth
-_IRQ_CENTRAL_CONNECT = bluetooth._IRQ_CENTRAL_CONNECT
-_IRQ_CENTRAL_DISCONNECT = bluetooth._IRQ_CENTRAL_DISCONNECT
+from micropython import const
+_IRQ_CENTRAL_CONNECT = const(1)
+_IRQ_CENTRAL_DISCONNECT = const(2)
 
 
 #defining conn_handle to make it a global variable
