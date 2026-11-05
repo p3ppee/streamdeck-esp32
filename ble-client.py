@@ -54,7 +54,7 @@ async def main():  #funzione main che permette di usare await senza def
     print("non connesso")
     
   servizi = await client.get_services() #tutti i servizi
-  servizo = servizi.get_service("214ad5ab-1420-43c6-9fcf-95606d53ca24")    #prendo il servizio "utilizato"
+  servizio = servizi.get_service("214ad5ab-1420-43c6-9fcf-95606d53ca24")    #prendo il servizio "utilizato"
   if servizio is None:
     return
   caratteristica = servizo.get_characteristic("7cdc9eab-9927-4af8-8f56-6fd9e410cef0")   #caratterisctica spotify
