@@ -6,6 +6,19 @@ esp32_addr = None
 def callback(sender, data):
   print("Comando ricevuto:", data.decode())
 
+def gestisci_comando(sender, data):
+  comando = data.decode()
+  if comando == "SPOTIFY":
+    print("comando spotify ricevuto")
+  elif comando == "DISCORD":
+    print("comando discord ricevuto")
+  elif comando == "OTD":
+    print("comando otd ricevuto")
+  elif comando == "ZEN":
+    print("comando zen ricevuto")
+  elif comando == "RE-PAIR":
+    print("comando re-pair ricevuto")
+
 async def trova_dispositivi():
   dispositivi = await BleakScanner.discover(timeout = 5.0)
   for dispositivo in dispositivi:
