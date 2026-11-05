@@ -7,12 +7,17 @@ _IRQ_CENTRAL_DISCONNECT = const(2)
 #defining conn_handle to make it a global variable
 conn_handle = None
 #defining functions
+
+def avvia_advertising():
+    ble.gap_advertise(100000, adv_data=adv_data)
+
 def gestisci_eventi(evento, dati):
     global conn_handle
     if evento == _IRQ_CENTRAL_CONNECT:
         conn_handle, addr_type, addr = dati
     elif evento == _IRQ_CENTRAL_DISCONNECT:
         conn_handle = None
+        avvia_advertising()
     
 def invia_comando(comando):
     if conn_handle is not None:
@@ -29,7 +34,7 @@ ble.config(gap_name="STREAMDECK-ESP32")
 nome = ("STREAMDECK-ESP32")
 dati = nome.encode()
 
-ble.irq(handler=gestisci_eventi)
+ble.irq(gestisci_eventi)
 
 pacchetto_nome = bytearray([len(dati) + 1, 0x09]) + bytearray(dati)
 flags = bytearray([0x02, 0x01, 0x06])
