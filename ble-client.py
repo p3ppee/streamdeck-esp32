@@ -1,4 +1,5 @@
 import asyncio
+import subprocess
 from bleak import BleakScanner, BleakClient
 
 esp32_addr = None
@@ -10,14 +11,18 @@ def gestisci_comando(sender, data):
   comando = data.decode()
   if comando == "SPOTIFY":
     print("comando spotify ricevuto")
+    subprocess.Popen(["cmd", "/c", "start", "", "spotify:"])
   elif comando == "DISCORD":
     print("comando discord ricevuto")
+    subprocess.Popen(["cmd", "/c", "start", "", "discord:"])
   elif comando == "OTD":
     print("comando otd ricevuto")
   elif comando == "ZEN":
     print("comando zen ricevuto")
   elif comando == "RE-PAIR":
     print("comando re-pair ricevuto")
+  else:
+    print("comando non riconosciuto")
 
 async def trova_dispositivi():
   dispositivi = await BleakScanner.discover(timeout = 5.0)
