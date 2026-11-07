@@ -16,25 +16,25 @@ def gestisci_comando(sender, data):   #callback
     try:
       subprocess.Popen(["cmd", "/c", "start", "", "spotify:"])
     except:
-      os.popen("spotify")
+      subprocess.popen("spotify")
   elif comando == "DISCORD":
     print("comando discord ricevuto")
     try:
       subprocess.Popen(["cmd", "/c", "start", "", "discord:"])
     except:
-      os.popen("discord")
+      subprocess.popen("discord")
   elif comando == "OTD":
     print("comando otd ricevuto")
     try:
       os.startfile(r'C:\Users\Fausto\Desktop\giochi\driver\OpenTabletDriver.UX.Wpf.exe')
     except:
-      os.popen("otd-gui")
+      subprocess.popen("otd-gui")
   elif comando == "ZEN":
     print("comando zen ricevuto")
     try:
       os.startfile(r"C:\Program Files\Zen Browser\zen.exe")
     except:
-      os.popen("zen-browser")
+      subprocess.popen("zen-browser")
   elif comando == "RE-PAIR":
     print("comando re-pair ricevuto")
   else:
