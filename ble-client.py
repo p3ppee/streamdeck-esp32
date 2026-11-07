@@ -16,25 +16,25 @@ def gestisci_comando(sender, data):   #callback
     try:
       subprocess.Popen(["cmd", "/c", "start", "", "spotify:"])
     except:
-      subprocess.popen("spotify")
+      subprocess.Popen("spotify")
   elif comando == "DISCORD":
     print("comando discord ricevuto")
     try:
       subprocess.Popen(["cmd", "/c", "start", "", "discord:"])
     except:
-      subprocess.popen("discord")
+      subprocess.Popen("discord")
   elif comando == "OTD":
     print("comando otd ricevuto")
     try:
       os.startfile(r'C:\Users\Fausto\Desktop\giochi\driver\OpenTabletDriver.UX.Wpf.exe')
     except:
-      subprocess.popen("otd-gui")
+      subprocess.Popen("otd-gui")
   elif comando == "ZEN":
     print("comando zen ricevuto")
     try:
       os.startfile(r"C:\Program Files\Zen Browser\zen.exe")
     except:
-      subprocess.popen("zen-browser")
+      subprocess.Popen("zen-browser")
   elif comando == "RE-PAIR":
     print("comando re-pair ricevuto")
   else:
@@ -73,6 +73,5 @@ async def main():  #funzione main che permette di usare await senza def
   await client.start_notify(caratteristica, gestisci_comando)
   await asyncio.Event().wait()
   
-
-asyncio.run(avvio())
+  asyncio.run(avvio())
 
